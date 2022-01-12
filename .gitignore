@@ -1,19 +1,22 @@
-# Gradle
+# gradle
 gradle-app.setting
 !gradle-wrapper.jar
 .gradle
 .gradletasknamecache
 .settings
 
-# Compiled class file
+# compiled class file
 bin/
 build/
 *.class
 
+# swap temp files
+*.swp
+
 # Log file
 *.log
 
-# Package Files #
+# package files
 *.jar
 *.war
 *.nar
@@ -22,6 +25,6 @@ build/
 *.tar.gz
 *.rar
 
-# Virtual machine crash logs
+# virtual machine crash logs
 hs_err_pid*
 replay_pid*
