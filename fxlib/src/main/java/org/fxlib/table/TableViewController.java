@@ -4,10 +4,9 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import java.lang.reflect.Field;
 
-public abstract class TableViewController {
+public class TableViewController {
     public static void init(TableView<Object> table, TableViewModel model) {
         if (null == table) {
             return;
