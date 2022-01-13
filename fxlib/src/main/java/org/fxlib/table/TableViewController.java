@@ -1,8 +1,11 @@
 package org.fxlib.table;
 
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import java.lang.reflect.Field;
 
 public abstract class TableViewController {
     public static void init(TableView<Object> table, TableViewModel model) {
@@ -14,7 +17,7 @@ public abstract class TableViewController {
         table.getColumns().clear();
         
         for (Field field : clazz.getFields()) {
-            String columnName = model.getColumnTitle(field.getName()) == null ? field.getName() : model.columnTitle(field.getName());
+            String columnName = model.getColumnTitle(field.getName()) == null ? field.getName() : model.getColumnTitle(field.getName());
             TableColumn<Object, Object> column = new TableColumn<>(columnName);
             column.setCellValueFactory(param -> {
                 try {
@@ -40,7 +43,7 @@ public abstract class TableViewController {
     }
 
     public static void init(TableView<Object> table, TableViewModel model, ObservableList list) {
-        TableViewModel.init(table, model);
+        TableViewController.init(table, model);
         table.setItems(list);
     }
 }
